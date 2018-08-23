@@ -1,6 +1,7 @@
 # <first R_Play code>
 # this code help to combine multiple text files (txt) as sperate sheets in one single excel file (xlsx)   
 # Author : Ggarpanchal <panchal.jigar90@gmail.com>
+# referance <http://www.sthda.com/english/wiki/writing-data-from-r-to-excel-files-xls-xlsx>
 # for use this function we have to install a package "xlsx" .
 # You have not this package then run this "install.packages("xlsx")" in r console.
 # before run this code set working directory where your txt files located
