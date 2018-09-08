@@ -14,9 +14,10 @@ txt_files_one_xlsx <- function ( file_name = "Output.xlsx", Header_txt = c(T,F))
         # for loop run untill file_list 
         temp <- read.delim(file = file_list[i], header = Header_txt)
         # temp store a temporary data.frame of import txt file data 
-        write.xlsx2(x = temp,file = file_name ,sheetName = (strsplit(x = file_list[i], split = ".txt")[[1]]),col.names = F, row.names = F, append = T)
-        # this line create a excel file with given file name, take input data from data.frame temp , sheetName contain your single text input file
-        # name without txt extention by default colname and rowname is FALSE , append is important use for a logical value indicating if input_data
-        # should be appended to an existing file.
+        write.xlsx2(x = temp,file = file_name ,sheetName = (strsplit(x = file_list[i], split = ".txt")[[1]]),
+                    col.names = F, row.names = F, append = T)
+        # this line create a excel file with given file name, take input data from data.frame temp , sheetName
+        # contain your single text input filename without txt extention by default colname and rowname is FALSE
+        # append is important use for a logical value indicating if input_data should be appended to an existing file.
   }
 }
