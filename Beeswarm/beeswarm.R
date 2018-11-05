@@ -1,6 +1,6 @@
 ## install.packages("beeswarm")
 library(beeswarm)
-A <- read.xlsx2("final_dotplot_sheet.xls",sheetIndex = 1,startRow = 2, header = F,stringsAsFactors = F,)
+A <- read.xlsx2("Demo_Sheet.xls",sheetIndex = 1,startRow = 2, header = F,stringsAsFactors = F,)
 A$X1 <- as.factor(A$X1)
 A$X2 <- as.numeric(A$X2)
 A$X3 <- as.factor(A$X3)
