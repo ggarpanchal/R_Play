@@ -1,6 +1,6 @@
 # Author : Ggarpanchal
 # this R script needed following packages : "data.table", "gtools", "xlsx"
-
+# You want to create a plot of per QLT per chromozone wise barplot
 library(data.table)
 
 raw_data <- fread("SNP_gene_QTL_intersect.txt",select = c(1,2,5,10))
@@ -30,6 +30,31 @@ aaaa<-  as.data.frame(matrix( unlist(strsplit(crop_x, " ")), nrow=length(crop_x)
 aaaa[,3] <- as.numeric(aaaa[,3])
 aaaa[,4] <- as.numeric(aaaa[,4])
 names(aaaa) <- c("QTL", "V2", "V3", "V4")
+
+######################### for plotting #######################
+
+library("lattice")
+
+png("V3.png", width = 1920, height = 1305)
+barchart( V3 ~ V2 | as.factor(QTL), data = aaaa, pch = 20, xlab = "QTL", 
+ 	ylab = "Chr", stack = T, auto.key = list(space = "right"), 
+ 	scale = list(x = list(rot = 45), layout = c(4,3)))
+dev.off()
+
+png("V4.png", width = 1920, height = 1305)
+barchart( V4 ~ V2 | as.factor(QTL), data = aaaa, pch = 20, xlab = "QTL", 
+ 	ylab = "Chr", stack = T, auto.key = list(space = "right"), 
+ 	scale = list(x = list(rot = 45), layout = c(4,3)))
+dev.off()
+
+png("V3 V4.png", width = 1920, height = 1305)
+barchart( V3 + V4 ~ V2 | as.factor(QTL), data = aaaa, pch = 20, xlab = "QTL", 
+ 	ylab = "Chr", stack = T, auto.key = list(space = "right"), 
+ 	scale = list(x = list(rot = 45), layout = c(4,3)))
+dev.off()
+
+##############################################################
+
 a <- dcast(aaaa, QTL ~ V2, value.var = "V3")
 aa <- dcast(aaaa, QTL ~ V2, value.var = "V4")
 
