@@ -1,3 +1,4 @@
+temp <- read.csv("Phenotype.csv",header = T)
 for(i in 1:nrow(temp)){
   print(i)
   x <-5:15
