@@ -1,7 +1,8 @@
 temp <- read.csv("Phenotype.csv",header = T)
+find_top <- function(x=5, min_select = 4){
 for(i in 1:nrow(temp)){
-  print(i)
-  x <-5:15
+  y <- 10
+  x <- x:y
   if(i == 1){
     a <- NA
   } 
@@ -11,5 +12,6 @@ for(i in 1:nrow(temp)){
 aaaaa <- cbind(temp$SampleID, a[2:nrow(a),])
 rownames(aaaaa) <- 1:nrow(aaaaa)
 vvv <- rowSums(is.na(aaaaa))
-index_no <- names(vvv[vvv <= 4])
+index_no <- names(vvv[vvv <= (ncol(temp)-1)-min_select])
 aaaaa[index_no,1]
+}
