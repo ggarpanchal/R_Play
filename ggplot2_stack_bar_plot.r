@@ -2,7 +2,7 @@ library(dplyr)
 library(ggplot2)
 
 options(scipen=10000)
-species_level = as.data.frame(read.csv("level-7.csv", header = FALSE))
+species_level = as.data.frame(read.csv("ggplot2_stack_bar_plot_dataset.csv", header = FALSE))
 species_level <- as.data.frame(t(species_level), stringsAsFactors = F) 
 species_level <- species_level[1:(nrow(species_level)-3),]
 species_level <- mutate(species_level, index = V2[1])
